@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pedrinho Simulator</title>
+    <style>
+        /* Basic CSS reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 350px;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .output {
+            font-size: 1.2em;
+            color: #007BFF;
+            margin-top: 20px;
+        }
+
+        .output img {
+            margin-top: 20px;
+            max-width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Pedrinho Simulator</h1>
+        <p>Escreve oque irá fazer amanhã:</p>
+        <input type="text" id="inputPhrase" placeholder="Enter your phrase here">
+        <button onclick="submitPhrase()">Enviar</button>
+
+        <div id="outputText" class="output"></div>
+        <img id="outputImage" src="" alt="" style="display: none;">
+    </div>
+
+    <script>
+        function submitPhrase() {
+            let input = document.getElementById("inputPhrase").value;
+
+           
+            document.getElementById("inputPhrase").value = "";
+
+            let outputText = document.getElementById("outputText");
+            let outputImage = document.getElementById("outputImage");
+            
+            if(input) {
+                outputText.innerText = `Bom mesmo é ${input}`;
+                outputImage.src = "https://via.placeholder.com/300x200"; // Example placeholder image
+                outputImage.style.display = "block";
+            } else {
+                outputText.innerText = "";
+                outputImage.style.display = "none"; // Hide image if no input
+            }
+        }
+    </script>
+
+</body>
+</html>
